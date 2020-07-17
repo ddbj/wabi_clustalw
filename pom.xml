@@ -1,0 +1,387 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.ac.nig.ddbj</groupId>
+	<artifactId>wabi</artifactId>
+	<packaging>war</packaging>
+	<version>2.8-SNAPSHOT</version>
+	<name>WABI : DDBJ WebAPIs for Biology</name>
+	<url>http://www.ddbj.nig.ac.jp/wabi/</url>
+
+
+	<properties>
+		<servlet-api.version>2.5</servlet-api.version>
+		<spring.version>3.2.13.RELEASE</spring.version>
+		<tiles.version>2.2.2</tiles.version>
+		<jstl.version>1.2</jstl.version>
+		<xstream.version>1.3.1</xstream.version>
+		<jackson.version>1.7.1</jackson.version>
+		<commons-logging.version>1.1.1</commons-logging.version>
+		<commons-digester.version>2.1</commons-digester.version>
+		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		<simpleutil.version>6.0.3</simpleutil.version>
+		<compiler.version>1.6</compiler.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<!--  <dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>${commons-digester.version}</version>
+		</dependency> -->
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.googlecode.sli4j</groupId>
+			<artifactId>sli4j-slf4j-logback</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!--  <dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId> 
+			<version>${commons-logging.version}</version>
+		</dependency> -->
+<!--		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+<!--		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.web.servlet</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+-->
+		<!-- <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>com.springsource.javax.servlet</artifactId> 
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency> 
+		<dependency>
+			<groupId>com.stupidjavatricks.spring</groupId>
+			<artifactId>spring-rest-example-model</artifactId> 
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.collections</groupId> 
+			<artifactId>google-collections</artifactId>
+			<version>1.0-rc4</version>
+		</dependency> -->
+
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-api</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-servlet</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-template</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>net.arnx</groupId>
+			<artifactId>jsonic</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.ogalab</groupId>
+			<artifactId>SimpleUtil</artifactId>
+			<version>${simpleutil.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>colt</groupId>
+			<artifactId>colt</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.ogalab</groupId>
+			<artifactId>SimpleUtil-linux</artifactId>
+			<version>${simpleutil.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.ogalab</groupId>
+			<artifactId>SimpleUtil-numerical</artifactId>
+			<version>${simpleutil.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-jdbc</artifactId>
+        	<version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.32</version>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		
+	</dependencies>
+
+	<profiles>
+		<!-- 環境依存を maven compile -Pdevelopment のようにの切り替えます。 -->
+		<!-- 本番用プロフィール -->
+		<profile>
+			<id>production</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<resources.directory>${basedir}/src/main/resources</resources.directory>
+			</properties>
+		</profile>
+		<!-- 統合テスト用プロフィール -->
+		<profile>
+			<id>integration</id>
+			<properties>
+				<resources.directory>${basedir}/src/integration/resources</resources.directory>
+			</properties>
+		</profile>
+		<!-- 開発用プロフィール -->
+		<profile>
+			<id>development</id>
+			<properties>
+				<resources.directory>${basedir}/src/development/resources</resources.directory>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>wabi</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>${compiler.version}</source>
+					<target>${compiler.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- This plugin is needed for the use of the junit ver 4.x -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+				    <useSystemClassLoader>true</useSystemClassLoader>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<linksource>true</linksource>
+					<show>private</show>
+					<maxmemory>1g</maxmemory>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<locales>en</locales>
+					<inputEncoding>UTF-8</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0-SNAPSHOT</version>
+				<configuration>
+					<server>tomcat7</server>
+					<url>http://rgm3.lab.nig.ac.jp:8080/manager</url>
+				</configuration>
+			</plugin>
+
+			<plugin>
+			    <groupId>com.mycila</groupId>
+			    <artifactId>license-maven-plugin</artifactId>
+			    <version>2.9</version>
+			    <configuration>
+			        <header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
+			        <properties>
+			            <owner>Osamu Ogasawara</owner>
+			            <email>oogasawa@nig.ac.jp</email>
+			        </properties>
+			        <excludes>
+			            <exclude>**/README</exclude>
+			            <exclude>src/test/resources/**</exclude>
+			            <exclude>src/main/resources/**</exclude>
+			        </excludes>
+			    </configuration>
+			</plugin>
+
+		</plugins>
+
+		<extensions>
+			<!-- for webdav based private repositories -->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+
+
+		<resources>
+			<resource>
+				<directory>${resources.directory}</directory>
+			</resource>
+		</resources>
+
+
+	</build>
+
+
+	<!-- private repositories from which libraries are downloaded -->
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>apache.snapshots</id>
+			<name>Apache Snapshots</name>
+			<url>http://people.apache.org/repo/m2-snapshot-repository</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+
+	</pluginRepositories>
+
+	<!-- Private repositories to which this archtect is uploaded -->
+</project>

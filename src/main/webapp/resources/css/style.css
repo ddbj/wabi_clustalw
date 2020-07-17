@@ -1,0 +1,2414 @@
+@charset "utf-8";
+/*
+Theme Name: DDBJ
+Template: twentyten
+*/
+
+
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: normal;
+}
+ol, ul {
+	list-style: none;
+	list-style-type: none !important;
+}
+blockquote {
+	quotes: none;
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img {
+	border: none;
+}
+
+/* =Layout
+-------------------------------------------------------------- */
+
+/*
+LAYOUT: Two columns
+DESCRIPTION: Two-column fixed layout with one sidebar right of content
+*/
+
+#container {
+	float: right;
+	margin: 0 -205px 0 0;		/*繧ｵ繧､繝峨ヰ繝ｼ縺ｨ譛ｬ譁�縺ｮ髢馴囈 */
+	width: 100%;
+}
+/* 2012.01.16 modified by Junko Kohira
+繧ｵ繧､繝峨ヰ繝ｼ繧貞ｺ�縺偵ｋ縺溘ａ縺ｫ縲�margin 繧偵�� -195px -- > -205px 縺ｫ螟画峩*/
+
+/*Modified by Kimiko Suzuki
+#content {
+	margin: 0 280px 0 20px;
+}*/
+#content {
+	margin: 0 300px 0 0px;
+}
+#primary,
+#secondary {
+	float: left;
+	overflow: hidden;
+	width: 190px;		/*繧ｵ繧､繝峨ヰ繝ｼ縺ｮ繧ｵ繧､繧ｺ*/
+}
+/* 2012.01.16 modified by Junko Kohira
+繧ｵ繧､繝峨ヰ繝ｼ繧貞ｺ�縺偵ｋ縺溘ａ縺ｫ縲�width 繧偵�� 180px -- > -190px 縺ｫ螟画峩*/
+
+
+#secondary {
+	clear: left;
+}
+#footer {
+	clear: both;
+	width: 100%;
+}
+
+/*
+LAYOUT: One column, no sidebar
+DESCRIPTION: One centered column with no sidebar
+*/
+
+.one-column #content {
+/*	margin: 0 auto;
+	width: 640px;*/
+    margim: 0 auto;
+    width: 600px;
+}
+
+/*
+LAYOUT: Full width, no sidebar
+DESCRIPTION: Full width content with no sidebar; used for attachment pages
+*/
+
+.single-attachment #content {
+	margin: 0 auto;
+	width: 900px;
+}
+
+
+/* =Fonts
+-------------------------------------------------------------- */
+body,
+input,
+textarea,
+.page-title span,
+.pingback a.url {
+	font-family:"MSP繧ｴ繧ｷ繝�繧ｯ", Arial, Verdana,sans-serif;
+/*	font-family: Georgia, "Bitstream Charter", serif;*/
+}
+h3#comments-title,
+h3#reply-title,
+#access .menu,
+#access div.menu ul,
+#cancel-comment-reply-link,
+.form-allowed-tags,
+#site-info,
+#site-title,
+#wp-calendar,
+.comment-meta,
+.comment-body tr th,
+.comment-body thead th,
+.entry-content label,
+.entry-content tr th,
+.entry-content thead th,
+.entry-meta,
+.entry-title,
+.entry-utility,
+#respond label,
+.navigation,
+.page-title,
+.pingback p,
+.reply,
+.widget-title,
+.wp-caption-text,
+input[type=submit] {
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+pre {
+/*	font-family: "MS譏取悃 ", Courier, monospace;
+	font-family: "MSP繧ｴ繧ｷ繝�繧ｯ ", Courier, monospace;*/
+	font-family:"MSP繧ｴ繧ｷ繝�繧ｯ", Arial, Verdana,sans-serif;
+
+
+}
+code {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+
+/* =Structure
+-------------------------------------------------------------- */
+
+/* The main theme structure */
+#access .menu-header,
+div.menu,
+#colophon,
+#branding,
+#main,
+#wrapper {
+/*	margin: 0px auto ;縲�縲�繝壹�ｼ繧ｸ縺ｮ蟾ｦ菴咏區 Kimiko Suzuki 2011.10.17*/
+        margin: 0px 0px ;	
+	width: 940px;		/*繝壹�ｼ繧ｸ縺ｮ螟匁棧縺ｮ螟ｧ縺阪＆*/
+}
+#wrapper {
+	background: #fff;
+	margin-top: 0px; 縲�/*繧ｳ繝ｳ繝�繝ｳ繝�荳企Κ縺ｮ菴咏區
+	margin-top: 30px;  2011.09.08 螟画峩縲�Kimiko Suzuki*/
+	padding: 0 20px;    
+}
+
+/* Structure the footer area */
+#footer-widget-area {
+	overflow: hidden;
+}
+#footer-widget-area .widget-area {
+	float: left;
+	margin-right: 20px;
+	width: 220px;
+}
+#footer-widget-area #fourth {
+	margin-right: 0;
+}
+#site-info {
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	width: 700px;
+}
+#site-generator {
+	float: right;
+	width: 220px;
+}
+
+
+/* =Global Elements
+-------------------------------------------------------------- */
+
+/* Main global 'theme' and typographic styles */
+
+/* 20101022 watanabe */
+html {
+	overflow-y: scroll;
+}
+/* modified by Kimiko Suzuki 2011.06.17 
+      繧ｳ繝ｳ繝�繝ｳ繝�縺ｮ蜻ｨ繧翫�ｮ濶ｲ繧貞､画峩�ｼ郁埋縺�繧ｰ繝ｬ繝ｼ竍ｨ逋ｽ�ｼ�
+body {
+	background: f1f1f1;
+}
+body,
+*/
+body {
+	background: #fff;
+}
+body,
+input,
+textarea {
+	color: #666;
+	font-size: 12px;
+	line-height: 18px;
+}
+hr {
+/*	background-color: #e7e7e7;*/
+	background-color: #000000;
+	border: 0;
+	clear: both;
+	height: 1px;
+	margin-bottom: 18px;
+}
+
+/* Text elements */
+p {
+margin-top:0px;
+margin-bottom: 18px;
+}
+ul {
+	list-style: square;
+	margin: 0 0 18px 1.5em;
+}
+ol {
+	list-style: decimal;
+	margin: 0 0 18px 1.5em;
+}
+ol ol {
+	list-style: upper-alpha;
+}
+ol ol ol {
+	list-style: lower-roman;
+}
+ol ol ol ol {
+	list-style: lower-alpha;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 0;
+}
+dl {
+	margin: 0 0 24px 0;
+}
+dt {
+/*	font-weight: bold;*/
+}
+dd {
+/*	margin-bottom: 18px;*/
+}
+strong {
+	font-weight: bold;
+}
+cite,
+em,
+i {
+	font-style: italic;
+}
+big {
+	font-size: 131.25%;
+}
+ins {
+	background: #ffc;
+	text-decoration: none;
+}
+blockquote {
+	font-style: italic;
+	padding: 0 3em;
+}
+blockquote cite,
+blockquote em,
+blockquote i {
+	font-style: normal;
+}
+/*pre {*/
+/*	background: #f7f7f7;*/
+/*background:#ffffcc;*/
+/*	color: #222;
+	line-height: 18px;
+	margin-bottom: 18px;
+	padding: 1.5em;
+}*/
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+input[type="text"],
+textarea {
+	background: #f9f9f9;
+	border: 1px solid #ccc;
+	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	padding: 2px;
+}
+/*a:link {
+	color: #0066cc;
+}*/
+a:link {
+/*	color:#00157d;*/ /*modified Kimiko Suzuki 110707*/
+        color:#293fc0;
+}
+a:visited {
+/*	color: #743399;*/ /*modified Kimiko Suzuki 110707*/
+	color:#3f59f2;
+}
+a:active,
+a:hover {
+	color:#3f59f2;
+
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	position: absolute;
+	left: -9000px;
+}
+
+
+/* =Header
+-------------------------------------------------------------- */
+
+#header {
+	padding: 0 0 0 0;
+}
+.float	{
+	float: left;
+	
+}
+#site-title {
+	float: left;
+	font-size: 30px;
+	line-height: 36px;
+	margin: 0 0 0 0;
+	width: 500px;
+}
+#site-title a {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+#site-description {
+	clear: none;
+	float: none;
+	font-style: italic;
+	margin: 0 0 18px 0;
+	width: 470px;
+}
+#header_meta {					/* RSS繝ｻLanguage繝ｻSearch 縺ｮ菴咲ｽｮ險ｭ螳�*/
+	float: right;
+	margin: 25px 60px 10px 0;
+}
+#header_meta_top {					/*Top Page 縺ｮ  RSS繝ｻLanguage繝ｻSearch 縺ｮ菴咲ｽｮ險ｭ螳�*/
+	float: right;									/* Test by Kimiko Suzuki 110413 */
+
+	margin: 40px 130px 10px 0;
+}
+#header_meta_nolanguage {      /* Language 繝ｪ繝ｳ繧ｯ縺檎┌縺�蝣ｴ蜷医�ｮ縲�[header_meta]  added by Kimiko Suzuki 2011.01.28 */
+    float: right;
+    margin: 40px 60px 0 0 ;
+}
+/* This is the custom header image */
+#branding img {
+	border-top: 4px solid #000;
+	border-bottom: 1px solid #000;
+	clear: both;
+	display: block;
+}
+
+
+/* =Menu
+-------------------------------------------------------------- */
+
+#access {
+	background: #f9f9f9 url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/ddbj/navi_base_bg.gif) repeat-x 50%;
+	display: block;
+	float: left;
+/*	margin: 0 auto;*/
+	margin-top: -10px;
+	margin-left: 20px;
+	margin-bottom:-40px;
+	width: 800px;
+	height:30px;		/* Added by K Suzuki 10.11.15 */
+        border:1px solid #d5d4d4;
+        text-decoration:none;
+
+/*	background: #000;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	width: 940px;
+*/
+}
+#access .menu-header,
+div.menu {
+	font-size: 12px;
+	margin-left: 0px;
+	width:900px;
+}
+#access .menu-header ul,
+div.menu ul {
+	list-style: none;
+	margin:0;
+}
+#access .menu-header li,
+div.menu li {
+	float: lift;
+	position: relative;
+}
+#access a {
+        background:#edebeb url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/ddbj/navi_bg.gif) repeat-x 50%;
+	color: #343434;  
+	display: block;
+        border:1px solid #d5d4d4;
+	line-height: 29px;
+	padding: 0 10px;
+	text-decoration: none;
+
+/*	color: #aaa;
+	display: block;
+	line-height: 38px;
+	padding: 0 10px;
+	text-decoration: none;
+*/
+}
+#access ul ul {
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+	display: none;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	float: left;
+	width: 180px;
+	z-index: 99999;
+}
+#access ul ul li {
+	min-width: 180px;
+}
+#access ul ul ul {
+	left: 100%;
+	top: 0;
+}
+#access ul ul a {
+	background: #333;
+	line-height: 1em;
+	padding: 10px;
+	width: 160px;
+	height: auto;
+}
+#access li:hover > a,
+#access ul ul :hover > a {
+        display:block;
+        background:#edebeb url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/ddbj/navi_bg.gif) repeat-x 50%;
+        color:#ee5a0f;
+        text-align:center;
+        border-right:1px solid #d5d4d4;
+        text-decoration:none;
+/*	color: #343434;*/
+
+/*	background: #333;
+	color: #fff;
+*/
+}
+#access ul li:hover > ul {
+	display: block;
+}
+#access ul li.current_page_item > a, 
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a {
+        display:block;
+	color:black;
+        background:#ffce48 url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/ddbj/navi_bg_on.gif) repeat-x 50% !important;
+        float:left;
+        text-align:center;
+        font-weight:bold;
+        border-right:1px solid #d5d4d4;
+        text-decoration:none;
+
+/*	color: #fff;
+*/
+}
+* html #access ul li.current_page_item a,
+
+* html #access ul li.current-menu-item a,
+* html #access ul li.current-menu-parent a,
+* html #access ul li a:hover {
+        background:#ffce48 url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/ddbj/navi_bg_on.gif) repeat-x 50% !important;
+        text-align:center;
+        line-height:2em;
+        font-weight:bold;
+        border-right:1px solid #d5d4d4;
+        text-decoration:none;
+
+/*	color: #fff;
+*/
+}
+
+/* =Breadcrumb
+-------------------------------------------------------------- */
+.breadcrumb{
+	margin-left:20px;
+	margin-top:-15px;
+        margin-bottom:5px;
+}
+
+/* =Content
+-------------------------------------------------------------- */
+
+#main {
+	clear: both;
+	overflow: hidden;
+	padding: 40px 0 0 0;
+}
+#content {
+	margin-bottom: 36px;
+}
+#content,
+#content input,
+
+/*modified by Kimiko Suzuki*/
+/*#content textarea {
+	color: #333;
+	font-size: 12px;
+	line-height: 24px;
+}*/
+
+#content textarea {
+	color: #333;
+	font-size: 13px;
+	line-height: 16px;
+}
+#content p,
+#content ul,
+#content ol,
+#content dd,
+#content pre,
+#content hr {
+	margin-bottom: 24px;
+}
+#content ul ul,
+#content ol ol,
+#content ul ol,
+#content ol ul {
+	margin-bottom: 0;
+}
+#content pre,
+#content kbd,
+#content tt,
+#content var {
+	font-size: 15px;
+	line-height: 21px;
+}
+#content code {
+	font-size: 13px;
+}
+#content dt,
+#content th {
+	color: #000;
+}
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5{
+	color: #000;
+	line-height: 1.5em;
+	margin: 0 0 10px 0;
+}
+#content h6 {
+	color:#293fc0;
+	line-height: 1.5em;
+	margin: 0 0 5px 20px;
+/*     	color: #000;
+	margin: 0 0 20px 0; --- 2012.01.31 Modified by K Suzuki for plugin "WordPress FAQ Manager" */
+}
+#content table {
+	border: 1px solid #e7e7e7;
+	margin: 0 -1px 24px 0;
+	text-align: left;
+	width: 100%;
+}
+#content tr th,
+#content thead th {
+/*	color: #888;        Table 縺ｮth 縺ｮ繝輔か繝ｳ繝医き繝ｩ繝ｼ縲�#888 竊� #000000 縺ｫ螟画峩縲�2011.11.30 Kimiko Suzuki*/
+        color:#000000;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 18px;
+	padding: 9px 24px;
+}
+#content tr td {
+	border-top: 1px solid #e7e7e7;
+	padding: 6px 10px;  /* td (陦ｨ縺ｮ蟾ｦ菴咏區隱ｿ謨ｴ縲�padding:6px 24px; 竊�   padding:6px 10px;   2011.08.05 */
+}
+#content tr.odd td {
+	background: #f2f7fc;
+}
+.hentry {
+	margin: 0 0 48px 0;
+}
+.home .sticky {
+	background: #f2f7fc;
+	border-top: 4px solid #000;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 18px 20px;
+}
+.single .hentry {
+	margin: 0 0 36px 0;
+}
+.page-title {
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 36px 0;
+}
+.page-title span {
+	color: #333;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: normal;
+}
+.page-title a:link,
+.page-title a:visited {
+	color: #888;
+	text-decoration: none;
+}
+.page-title a:active,
+.page-title a:hover {
+	color: #ff4b33;
+}
+ .faq-title {    /** 繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ縲�謚慕ｨｿ縺ｮ繧ｿ繧､繝医Ν **/
+	 background: url(http://www.ddbj.nig.ac.jp/wp-content/uploads/faq_q.gif) no-repeat center left;  / * added by Kimiko Suzuki */
+	background 
+	color: #000;
+        padding-left:20px;
+	font-size:16px;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 0;
+}
+#content .entry-title {    /** 繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ縲�謚慕ｨｿ縺ｮ繧ｿ繧､繝医Ν **/
+	 background: url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/icon02.gif) no-repeat center left;  / * added by Kimiko Suzuki */
+	background 
+	color: #000;
+/*	font-size: 21px; */   /** Modify by Kimiko Suzuki */
+	font-size:16px;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 0;
+}
+.entry-title a:link,
+.entry-title a:visited {
+	color: #000;
+	text-decoration: none;
+}
+.entry-title a:active,
+.entry-title a:hover {
+	color: #ff4b33;
+}
+.entry-meta {             /* 謚慕ｨｿ繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ縺ｮ謚慕ｨｿ閠�遲峨�ｮ陦ｨ遉ｺ譁ｹ豕輔��*/
+	color: #888;
+	font-size: 12px;
+/*     margin-left:500px;  modified on 2012.02.08*/
+      margin-left:480px; 
+}
+.entry-meta .meta-sep{   /*繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ�ｼ壺�昜ｽ懈�占���ｼ壺�昴�ｮ豸亥悉 --- 縺薙ｌ繧貞炎髯､縺吶ｌ縺ｰ陦ｨ遉ｺ縺輔ｌ繧� */
+     display: none;
+} 
+ .author{                  /*繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ�ｼ壻ｽ懈�占��蜷阪�ｮ豸亥悉 --- 縺薙ｌ繧貞炎髯､縺吶ｌ縺ｰ陦ｨ遉ｺ縺輔ｌ繧� */
+     display: none;
+} 
+.entry-meta abbr,
+.entry-utility {   /* 繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ荳九�ｮ窶昴き繝�繧ｴ繝ｪ繝ｼ�ｼ�"縺ｮ豸亥悉 -- 縺薙ｌ繧貞炎髯､縺吶ｌ縺瑚｡ｨ遉ｺ縺輔ｌ繧�*/
+display:none;
+}
+.entry-utility abbr {
+	border: none;
+}
+.entry-meta abbr:hover,
+.entry-utility abbr:hover {
+	border-bottom: 1px dotted #666;
+}
+.entry-content,
+.entry-summary {  		/* 謚慕ｨｿ蜀�螳ｹ縲�螟画峩縺励※縺ｾ縺帙ｓ�ｼ郁ｦ壽嶌�ｼ� */
+	clear: both;
+	padding: 12px 0 0 0;
+}
+#content .entry-summary p:last-child {
+	margin-bottom: 12px;
+}
+.entry-content fieldset {
+	border: 1px solid #e7e7e7;
+	margin: 0 0 24px 0;
+	padding: 24px;
+}
+.entry-content fieldset legend {
+	background: #fff;
+	color: #000;
+	font-weight: bold;
+	padding: 0 24px;
+}
+.entry-content input {
+	margin: 0 0 24px 0;
+}
+.entry-content input.file,
+.entry-content input.button {
+	margin-right: 24px;
+}
+.entry-content label {
+	color: #888;
+	font-size: 12px;
+}
+.entry-content select {
+	margin: 0 0 24px 0;
+}
+.entry-content sup,
+.entry-content sub {
+	font-size: 10px;
+}
+.entry-content blockquote.left {
+	float: left;
+	margin-left: 0;
+	margin-right: 24px;
+	text-align: right;
+	width: 33%;
+}
+.entry-content blockquote.right {
+	float: right;
+	margin-left: 24px;
+	margin-right: 0;
+	text-align: left;
+	width: 33%;
+}
+.page-link {
+	color: #000;
+	font-weight: bold;
+	margin: 0 0 22px 0;
+	word-spacing: 0.5em;
+}
+.page-link a:link,
+.page-link a:visited {
+	background: #f1f1f1;
+	color: #333;
+	font-weight: normal;
+	padding: 0.5em 0.75em;
+	text-decoration: none;
+}
+.home .sticky .page-link a {
+	background: #d9e8f7;
+}
+.page-link a:active,
+.page-link a:hover {
+	color: #ff4b33;
+}
+body.page .edit-link {
+	clear: both;
+	display: block;
+}
+#entry-author-info {
+	background: #f2f7fc;
+	border-top: 4px solid #000;
+	clear: both;
+	font-size: 14px;
+	line-height: 20px;
+	margin: 24px 0;
+	overflow: hidden;
+	padding: 18px 20px;
+}
+#entry-author-info #author-avatar {
+	background: #fff;
+	border: 1px solid #e7e7e7;
+	float: left;
+	height: 60px;
+	margin: 0 -104px 0 0;
+	padding: 11px;
+}
+#entry-author-info #author-description {
+	float: left;
+	margin: 0 0 0 104px;
+}
+#entry-author-info h2 {
+	color: #000;
+	font-size: 100%;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.entry-utility {縲�縲�縲�縲�縲�縲�縲�/* 繧ｷ繝ｳ繧ｰ繝ｫ繝壹�ｼ繧ｸ荳九�ｮ窶昴き繝�繧ｴ繝ｪ繝ｼ�ｼ�"陦ｨ遉ｺ險ｭ螳�*/
+	clear: both;
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+}
+.entry-meta a,
+.entry-utility a {
+	color: #888;
+}
+.entry-meta a:hover,
+.entry-utility a:hover {
+	color: #ff4b33;
+}
+#content .video-player {
+	padding: 0;
+}
+
+
+/* =Asides
+-------------------------------------------------------------- */
+
+.home #content .category-asides p {
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+.home .hentry.category-asides {
+	padding: 0;
+}
+.home #content .category-asides .entry-content {
+	padding-top: 0;
+}
+
+
+/* =Gallery listing
+-------------------------------------------------------------- */
+
+.category-gallery .size-thumbnail img {
+	border: 10px solid #f1f1f1;
+	margin-bottom: 0;
+}
+.category-gallery .gallery-thumb {
+	float: left;
+	margin-right: 20px;
+	margin-top: -4px;
+}
+.home #content .category-gallery .entry-utility {
+	padding-top: 4px;
+}
+
+
+/* =Attachment pages
+-------------------------------------------------------------- */
+
+.attachment .entry-content .entry-caption {
+	font-size: 140%;
+	margin-top: 24px;
+}
+.attachment .entry-content .nav-previous a:before {
+	content: '\2190\00a0';
+}
+.attachment .entry-content .nav-next a:after {
+	content: '\00a0\2192';
+}
+
+
+/* =Images
+-------------------------------------------------------------- */
+
+#content img {
+	margin: 0;
+	height: auto;
+	max-width: 640px;
+	width: auto;
+}
+#content .attachment img {
+	max-width: 900px;
+}
+#content .alignleft,
+#content img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 24px;
+	margin-top: 4px;
+}
+#content .alignright,
+#content img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 24px;
+	margin-top: 4px;
+}
+#content .aligncenter,
+#content img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#content img.alignleft,
+#content img.alignright,
+#content img.aligncenter {
+	margin-bottom: 12px;
+}
+#content .wp-caption {
+	background: #f1f1f1;
+	line-height: 18px;
+	margin-bottom: 20px;
+	padding: 4px;
+	text-align: center;
+}
+#content .wp-caption img {
+	margin: 5px 5px 0;
+}
+#content .wp-caption p.wp-caption-text {
+	color: #888;
+	font-size: 12px;
+	margin: 5px;
+}
+#content .wp-smiley {
+	margin: 0;
+}
+#content .gallery {
+	margin: 0 auto 18px;
+}
+#content .gallery .gallery-item {
+	float: left;
+	margin-top: 0;
+	text-align: center;
+	width: 33%;
+}
+#content .gallery img {
+	border: 2px solid #cfcfcf;
+}
+#content .gallery .gallery-caption {
+	color: #888;
+	font-size: 12px;
+	margin: 0 0 12px;
+}
+#content .gallery dl {
+	margin: 0;
+}
+#content .gallery img {
+	border: 10px solid #f1f1f1;
+}
+#content .gallery br+br {
+	display: none;
+}
+#content .attachment img { /* single attachment images should be centered */
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* =Navigation
+-------------------------------------------------------------- */
+
+.navigation {
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+	overflow: hidden;
+}
+.navigation a:link,
+.navigation a:visited {
+	color: #888;
+	text-decoration: none;
+}
+.navigation a:active,
+.navigation a:hover {
+	color: #ff4b33;
+}
+.nav-previous {
+	float: left;
+	width: 50%;
+}
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+#nav-above {
+	margin: 0 0 18px 0;
+}
+#nav-above {
+	display: none;
+}
+.paged #nav-above,
+.single #nav-above {
+	display: block;
+}
+#nav-below {
+	margin: -18px 0 0 0;
+}
+
+
+/* =Comments
+-------------------------------------------------------------- */
+#comments {
+	clear: both;
+}
+#comments .navigation {
+	padding: 0 0 18px 0;
+}
+h3#comments-title,
+h3#reply-title {
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+h3#comments-title {
+	padding: 24px 0;
+}
+.commentlist {
+	list-style: none;
+	margin: 0;
+}
+.commentlist li.comment {
+	border-bottom: 1px solid #e7e7e7;
+	line-height: 24px;
+	margin: 0 0 24px 0;
+	padding: 0 0 0 56px;
+	position: relative;
+}
+.commentlist li:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+#comments .comment-body ul,
+#comments .comment-body ol {
+	margin-bottom: 18px;
+}
+#comments .comment-body p:last-child {
+	margin-bottom: 6px;
+}
+#comments .comment-body blockquote p:last-child {
+	margin-bottom: 24px;
+}
+.commentlist ol {
+	list-style: decimal;
+}
+.commentlist .avatar {
+	position: absolute;
+	top: 4px;
+	left: 0;
+}
+.comment-author {
+}
+.comment-author cite {
+	color: #000;
+	font-style: normal;
+	font-weight: bold;
+}
+.comment-author .says {
+	font-style: italic;
+}
+.comment-meta {
+	font-size: 12px;
+	margin: 0 0 18px 0;
+}
+.comment-meta a:link,
+.comment-meta a:visited {
+	color: #888;
+	text-decoration: none;
+}
+.comment-meta a:active,
+.comment-meta a:hover {
+	color: #ff4b33;
+}
+.commentlist .even {
+}
+.commentlist .bypostauthor {
+}
+.reply {
+	font-size: 12px;
+	padding: 0 0 24px 0;
+}
+.reply a,
+a.comment-edit-link {
+	color: #888;
+}
+.reply a:hover,
+a.comment-edit-link:hover {
+	color: #ff4b33;
+}
+.commentlist .children {
+	list-style: none;
+	margin: 0;
+}
+.commentlist .children li {
+	border: none;
+	margin: 0;
+}
+.nopassword,
+.nocomments {
+	display: none;
+}
+#comments .pingback {
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 18px;
+	padding-bottom: 18px;
+}
+.commentlist li.comment+li.pingback {
+	margin-top: -6px;
+}
+#comments .pingback p {
+	color: #888;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+}
+#comments .pingback .url {
+	font-size: 13px;
+	font-style: italic;
+}
+
+/* Comments form */
+input[type=submit] {
+	color: #333;
+}
+#respond {
+	border-top: 1px solid #e7e7e7;
+	margin: 24px 0;
+	overflow: hidden;
+	position: relative;
+}
+#respond p {
+	margin: 0;
+}
+#respond .comment-notes {
+	margin-bottom: 1em;
+}
+.form-allowed-tags {
+	line-height: 1em;
+}
+.children #respond {
+	margin: 0 48px 0 0;
+}
+h3#reply-title {
+	margin: 18px 0;
+}
+#comments-list #respond {
+	margin: 0 0 18px 0;
+}
+#comments-list ul #respond {
+	margin: 0;
+}
+#cancel-comment-reply-link {
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+}
+#respond .required {
+	color: #ff4b33;
+	font-weight: bold;
+}
+#respond label {
+	color: #888;
+	font-size: 12px;
+}
+#respond input {
+	margin: 0 0 9px;
+	width: 98%;
+}
+#respond textarea {
+	width: 98%;
+}
+#respond .form-allowed-tags {
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+}
+#respond .form-allowed-tags code {
+	font-size: 11px;
+}
+#respond .form-submit {
+	margin: 12px 0;
+}
+#respond .form-submit input {
+	font-size: 14px;
+	width: auto;
+}
+
+
+/* =Widget Areas
+-------------------------------------------------------------- */
+
+.widget-area ul {
+	list-style: none;
+	margin-left: 0;
+}
+.widget-area ul ul {
+	list-style: square;
+	margin-left: 1.3em;
+}
+.widget_search #s {/* This keeps the search inputs in line */
+	width: 60%;
+}
+.widget_search label {
+	display: none;
+}
+.widget-container {
+	margin: 0 0 18px 0;
+}
+.widget-title {
+	color: #222;
+	font-weight: bold;
+}
+.widget-area a:link,
+.widget-area a:visited {
+	text-decoration: none;
+}
+.widget-area a:active,
+.widget-area a:hover {
+	text-decoration: underline;
+}
+.widget-area .entry-meta {
+	font-size: 11px;
+}
+#wp_tag_cloud div {
+	line-height: 1.6em;
+}
+#wp-calendar {
+	width: 100%;
+}
+#wp-calendar caption {
+	color: #222;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 4px;
+	text-align: left;
+}
+#wp-calendar thead {
+	font-size: 11px;
+}
+#wp-calendar thead th {
+}
+#wp-calendar tbody {
+	color: #aaa;
+}
+#wp-calendar tbody td {
+	background: #f5f5f5;
+	border: 1px solid #fff;
+	padding: 3px 0 2px;
+	text-align: center;
+}
+#wp-calendar tbody .pad {
+	background: none;
+}
+#wp-calendar tfoot #next {
+	text-align: right;
+}
+.widget_rss a.rsswidget {
+	color: #000;
+}
+.widget_rss a.rsswidget:hover {
+	color: #ff4b33;
+}
+.widget_rss .widget-title img {
+	width: 11px;
+	height: 11px;
+}
+
+/* Main sidebars */
+#main .widget-area ul {
+	margin-left: 0;
+	padding: 0 20px 0 0;
+}
+#main .widget-area ul ul {
+	border: none;
+	margin-left: 1.3em;
+	padding: 0;
+}
+#primary {
+}
+#secondary {
+}
+
+/* Footer widget areas */
+#footer-widget-area {
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+
+#footer {
+	margin-bottom: 20px;
+}
+#colophon {
+	border-top: 4px solid #000;
+	margin-top: -4px;
+	overflow: hidden;
+	padding: 18px 0;
+}
+#site-info {
+	font-weight: bold;
+}
+#site-info a {
+	color: #000;
+	text-decoration: none;
+}
+#site-generator {
+	font-style: italic;
+	position: relative;
+}
+#site-generator a {
+	background: url(images/wordpress.png) center left no-repeat;
+	color: #666;
+	display: inline-block;
+	line-height: 16px;
+	padding-left: 20px;
+	text-decoration: none;
+}
+#site-generator a:hover {
+	text-decoration: underline;
+}
+img#wpstats {
+	display: block;
+	margin: 0 auto 10px;
+}
+
+
+/* =Mobile Safari ( iPad, iPhone and iPod Touch )
+-------------------------------------------------------------- */
+
+pre {
+	-webkit-text-size-adjust: 140%;
+}
+code {
+	-webkit-text-size-adjust: 160%;
+}
+#access,
+.entry-meta,
+.entry-utility,
+.navigation,
+.widget-area {
+	-webkit-text-size-adjust: 120%;
+}
+#site-description {
+	-webkit-text-size-adjust: none;
+}
+
+
+/* =Print Style
+-------------------------------------------------------------- */
+
+@media print {
+	body {
+		background: none !important;
+	}
+	#wrapper {
+		clear: both !important;
+		display: block !important;
+		float: none !important;
+		position: relative !important;
+	}
+	#header {
+		border-bottom: 2pt solid #000;
+		padding-bottom: 18pt;
+	}
+	#colophon {
+		border-top: 2pt solid #000;
+	}
+	#site-title,
+	#site-description {
+		float: none;
+		line-height: 1.4em;
+		margin: 0;
+		padding: 0;
+	}
+	#site-title {
+		font-size: 13pt;
+	}
+	.entry-content {
+		font-size: 14pt;
+		line-height: 1.6em;
+	}
+	.entry-title {
+		font-size: 21pt;
+	}
+	#access,
+	#branding img,
+	#respond,
+	.comment-edit-link,
+	.edit-link,
+	.navigation,
+	.page-link,
+	.widget-area {
+		display: none !important;
+	}
+	#container,
+	#header,
+	#footer {
+		margin: 0;
+/*		width: 100%;*/
+width:600px;
+	}
+	#content,
+	.one-column #content {
+		margin: 24pt 0 0;
+		width: 100%;
+	}
+	.wp-caption p {
+		font-size: 11pt;
+	}
+	#site-info,
+	#site-generator {
+		float: none;
+		width: auto;
+	}
+	#colophon {
+		width: auto;
+	}
+	img#wpstats {
+		display: none;
+	}
+	#site-generator a {
+		margin: 0;
+		padding: 0;
+	}
+	#entry-author-info {
+		border: 1px solid #e7e7e7;
+	}
+	#main {
+		display: inline;
+	}
+	.home .sticky {
+		border: none;
+	}
+}
+
+/*========================
+ 笆�8: .pagetop
+  ========================*/
+.pagetop {
+        float:right;
+        margin-right:10px;
+	margin-bottom:20px;
+        font-size:100%;
+}
+.nosidebar-pagetop{
+        float:right;
+        margin-right:50px;
+	margin-bottom:20px;
+        font-size:100%;
+}
+.mag-pagetop{
+        float:right;
+        margin-right:100px;
+	margin-bottom:20px;
+        font-size:100%;
+}
+/*########## base.css ##########*/
+/*谺｡髫主ｱ､-蟾ｦ繝｡繝九Η繝ｼ辟｡繝ｬ繧､繧｢繧ｦ繝�*/
+#main_l {
+        width: 385px;
+        float: left;
+}
+#main_r {
+        width: 385px;
+        float: right;
+        padding-right: 50px ;
+	padding-top: 0px;
+}
+
+/*----------------------------------------------------------------------------------
+   contents02.css
+-----------------------------------------------------------------------------------*/
+/*============逶ｮ谺｡(谺｡髫主ｱ､繧ｳ繝ｳ繝�繝ｳ繝�繧ｨ繝ｪ繧｢)===========
+
+譛�邨よ峩譁ｰ譌･�ｼ�2008/6/6
+
+1:  topicpath(繝代Φ繧ｯ繧ｺ)
+2:  #main
+3:  h1          
+4:  h2          
+5:縲�h3
+5-1: h4 (added by JK at 080715 for DDBJing)5-2: h_wn (added by JK at 081224 for whatsnew2009)
+6:縲�box05縲�(list float/蟾ｦmenu譛峨Ξ繧､繧｢繧ｦ繝育畑)
+7:  box06(list float/2column逕ｨ)
+8:  dl
+9:  table
+10: #box04
+11: box07(list float/1column逕ｨ)(###縲�蜑企勁 2011.04.12 by Kimiko Suzuki###)
+12: flatfile(flatfile逕ｨ)
+13: result_log(蜈ｬ髢九し繝ｼ繝薙せresult逕ｨ)
+14: mag (added by JK at 080314)
+15: DDBJing (added by JK at 080409)
+16: table for breakdown_stats (added by JK at 080415, 080519)
+17: Monthly DDBJ Topic (added by JK at 080606
+)============================*/
+/*========================
+ 笆� 3. h1 
+ ========================*/
+.h1_design {
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/h1_bg.gif) no-repeat center left;
+	width:620px;
+	height:31px;
+        border:solid 1px #d2d2d2;
+        margin-bottom:5px;
+}
+.h1_design_long {
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/h1_bg_long.gif) no-repeat center left;
+	width:800px;
+	height:30px;
+        border:solid 1px #d2d2d2;
+        margin-bottom:15px;
+}
+h1 {
+/*      font-size:85%; */
+        font-size:120%;
+        font-weight:bold;
+        border:solid 2px #ffffff;
+        padding:4px 0px 2px 15px;
+        color:#444444;
+}
+/*========================
+  笆� 4. h2
+  ========================*/
+h2 {
+        font-size:115%;
+	font-weight:bold;
+        color:#444444;
+        padding:5px 0 3px 20px;
+        border-bottom:solid 1px #ff8209;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/arrow_l_07.gif) no-repeat center left;
+        margin-bottom:15px;
+}
+/*========================
+ 笆� 5. h3
+  ========================*/
+h3 {
+        font-size:110%;
+	font-weight:bold;
+/*       border-bottom:solid 1px ;*/
+        padding-left:15px;
+       background: url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/icon02.gif) no-repeat center left;
+/*        margin-bottom:50px;*/
+margin-top:50px;
+ 
+}
+/*========================
+ 笆� 5-1. h4
+  ========================*/
+h4 {
+        background: url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/icon02.gif) no-repeat center left;
+        font-size:100%;
+        padding-left:15px;
+        margin:0 0 10px 10px
+}
+/*========================
+ 笆� 6. box05
+  ========================*/
+.box05_l {
+        width:230px;
+        float:left;
+        font-size:100%;
+        padding:0 0px;
+}
+
+.box05_l li{
+        list-style:none;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/list01.gif) no-repeat 0px 8px;
+        padding-left:10px;
+
+}
+.box05_r {
+        width:357px; 
+        float:right;
+        font-size:100%;
+        padding:0 0px;
+}  
+
+.box05_r li{
+        list-style:none;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/list01.gif) no-repeat 0px 8px;
+        padding-left:10px;
+
+}
+/*========================
+ 笆� 7. box06
+  ========================*/
+.box06_l {
+        width:160px;
+        float:left;
+        font-size:100%;
+        padding-left:0px;
+}
+.box06_l li{
+        list-style:none;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/list01.gif) no-repeat 0px 5px;
+        padding-left:10px;
+}
+.box06_r {
+        width:100px;
+        float:right;
+        font-size:100%;
+        padding:0 60px;
+}
+.box06_r li{
+        list-style:none;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/list01.gif) no-repeat 0px 8px;
+        padding-left:10px;
+}
+
+/*========================
+ 笆� 8. dl
+  ========================*/
+dl {
+        margin:0 10px;
+}
+dt {
+        font-size:100%;
+/*        font-weight:bold;*/
+        margin-bottom:5px;
+}
+
+/* -----(added by JK at 080409)*/
+.dt_02
+{
+        font-size:80%;
+        margin-bottom:5px;
+}
+/* ----------*/
+
+dd {
+        font-size:100%;
+        margin:0 0 15px 10px;
+}
+ol {
+        margin:10px 0 0 30px;
+}
+/*========================
+ 笆� 9. table
+  ========================*/
+table {
+        width:603px;
+        font-size:100%;
+        border-collapse:collapse;
+        margin:10px;
+}
+th {
+        width:250px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:left;
+}
+td {
+        border:solid 1px #d2d2d2;
+        padding:10px;
+}
+/*========================
+ 笆�9: br.blockend
+  ========================*/
+br.blockend {
+        clear:both;
+        font-size:1px;
+}
+
+/*========================
+ 笆� 12. flatfile
+  ========================*/
+.flatfile {
+       font-family:  "�ｼｭ�ｼｳ 繧ｴ繧ｷ繝�繧ｯ",Courier,monospace;
+        font-size:9pt;
+        line-height:10pt;
+        white-space: pre;
+        background-color: #ffffcc;
+        padding-top:5px;
+        padding-bottom:5px;
+        padding-left:5px;
+}
+/* added by Kimiko Suzuki 2011.06.29 */
+pre#flatfile {
+        font-family:  "�ｼｭ�ｼｳ 繧ｴ繧ｷ繝�繧ｯ",Courier,monospace;
+        font-size:9pt;
+        line-height:10pt;
+        white-space: pre;
+        background-color: #ffffcc;
+        padding-top:5px;
+        padding-bottom:5px;
+        padding-left:5px;
+}
+/*  (added by JK on 080314 for mailmagazine)
+    (added by JK on 080807 for mailmagazine)
+    (added by JK on 090126 for mailmagazine) */
+======================== 
+笆� 14. mag 
+========================*/
+/*  (added by JK on 091130 for class-name-change by KS)*/
+.table_toumei {
+                font-size: 100%;
+outline-style:none;
+                border: solid  0px #ffffff;
+                border-collapse: collapse;
+                margin:0px;
+} 
+/*  (added by JK on 091130 for class-name-change programmed by KS)*/
+/*.td_toumei      {
+        border:solid 0px #ffffff;
+        padding:5px; 
+       margin: 10px;
+}*/
+/*.td_toumei{
+border: solid  0px #ffffff;
+}*/
+/* ========================
+ 笆� 15.DDBJing 
+ ========================*/
+/* == 繧ｷ繝ｧ繝ｼ繝医さ繝ｼ繝� css === */
+/* 繝壹�ｼ繧ｸ繝医ャ繝励�ｮ隰帷ｿ剃ｼ壹�ｮ讎りｦ√�ｮtable */
+table#ddbjing_01{
+	width: 700px;
+	margin:10px 0 0 10px;
+	border: solid  1px #000099;
+}
+tr td#ddbjing_01 {
+	border: solid  0px #ffffff;
+        padding-right:0px;
+}
+
+/* 譌･遞玖｡ｨ */
+table#ddbjing_02 {
+	width: 700px;
+	table-layout: auto;
+        border: solid  1px #999999;
+        border-collapse: collapse;
+	margin:0px 0 0 10px;
+}
+
+tr td#ddbjing_02_date
+      {
+        border:solid 1px #999999;
+        background-color: #ffddff;
+        text-align:center;
+        font-weight:bold;
+}
+
+tr td#ddbjing_02_item
+      {
+        border:solid 1px #999999;
+        text-align:center;
+}
+
+tr td#ddbjing_02_break
+      {
+        border:solid 1px #999999;
+        background-color: #e6dcf0;
+}
+
+tr td#ddbjing_02_lecturer
+      {
+        border:solid 1px #999999;
+}
+
+tr td#ddbjing_02_title
+      {
+        border:solid 1px #999999;
+        background-color: #ccddee;
+}
+
+/* == 繧ｷ繝ｧ繝ｼ繝医さ繝ｼ繝� css 縺薙％縺ｾ縺ｧ === */
+/* == 隰帷ｿ剃ｼ壼ｾ後い繝ｳ繧ｱ繝ｼ繝育畑 === */
+table#enquete {
+        width:800px;
+        border:solid 3px ;
+        background-color: #FF6600;
+        border-collapse: collapse;
+}
+        
+h3#ddbjing {
+        font-size:110%;
+	font-weight:bold;
+        padding-left:15px;
+        background: url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/icon02.gif) no-repeat center left;
+margin-bottom;50px;
+}
+
+
+/*.table_ddbjing_01
+      {
+                font-size:80%;
+                border: solid  1px #000099;
+                border-collapse: collapse;
+                margin: 30px;
+}
+*/
+.table_ddbjing_01{
+		width: 600px;
+		margin-left:20px;
+		border: solid  1px #000099;
+}
+
+.table_ddbjing_02
+      {
+                font-size: 100%;
+                table-layout: auto;
+                border: solid  1px #999999;
+                border-collapse: collapse;
+                margin: 10px 30px 10px 30px;
+}
+
+/*  (added by JK on 080805 for hot topics)*/
+.table_ddbjing_02wide
+      { 
+                width: 720px;
+                font-size: 80%;
+                table-layout: auto;
+                border: solid  1px #999999;
+                border-collapse: collapse;
+                margin: 10px 30px 10px 30px;
+}
+        
+        
+.th_ddbjing
+      {
+        border:solid 0px #ffffff;
+        padding:10px;
+        text-align:left;
+}
+
+.td_ddbjing_01
+      {
+        border:solid 0px #ffffff;
+        padding:5px;
+        margin: 10px;
+}
+
+
+/*  (added by JK on 091130 for class-name-change programmed by KS)*/
+/*.td_toumei
+      {
+        border:solid 0px #ffffff;
+        padding:5px;
+        margin: 10px;
+}
+*/
+
+
+.td_ddbjing_02
+      {
+        border:solid 1px #999999;
+        padding:5px 10px 5px 5px;
+        margin: 10px;
+}
+
+
+.td_ddbjing_03
+      {
+        border:solid 1px #333333;
+        padding:5px 10px 5px 5px;
+        margin: 10px;
+}
+
+.td_ddbjing_04
+      {
+        border:solid 1px #999999;
+        padding:5px;
+        margin: 10px;
+        text-align: center;
+}
+.sotowaku {
+                border: 1px solid #000099;
+                padding: 5px;
+                text-align: left
+}
+
+
+
+
+ /*========================
+ 笆� 16. table for breakdown_stats
+ ========================*/
+
+
+.table_bs {
+       width:650px;
+        border: solid 3px #d2d2d2;
+        font-size:20%;
+        border-collapse:collapse;
+        margin-left:30px;
+}
+
+.table_bs_nu {
+	width:400px; 
+	border: solid 3px #d2d2d2;
+}
+
+
+.th_bs {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #b0c4DE
+}
+
+
+.th_bs_ddbj {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #ffc594;
+}
+/* changed by JK at 20100223 from #ffcccc to #ffc594*/
+
+.th_bs_embl {
+       width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #5fb4a0
+}
+/* changed by JK at 20100223 from #ccff99 to #5fb4a0*/
+
+.th_bs_gb {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #528cde;
+}
+/* changed by JK at 20100223 from #6699cc to #528cde*/
+
+.td_bs_c{
+font-size:100%;
+        border:solid 1px #d2d2d2;
+/*        padding:3px 1px;*/
+        text-align: center;
+}
+
+.td_bs_c_b{
+font-size:100%;
+        border:solid 1px #d2d2d2;
+/*        padding:3px 5px;*/
+        text-align: center;
+        background-color: #E0FFFF;
+
+}
+
+
+.td_bs_l_b{
+        border:solid 1px #d2d2d2;
+        padding:3px 5px;
+        text-align: left;
+        background-color: #E0FFFF;
+}
+ /*===========================================
+ 笆� What's new Archive --- by Kimiko Suzuki (11.04.12)
+ ===========================================*/
+.wna_page_title{
+	background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/h1_bg_long.gif) no-repeat center left;
+	width:800px;
+	height:30px;
+        border:solid 1px #d2d2d2; 
+       	margin-bottom:15px;
+}
+.wna_title{
+	background:url(http://www.ddbj.nig.ac.jp/wp-content/uploads/mix09010502.gif) no-repeat center left; 
+        font-size:100%; 
+        font-weight:bold; 
+	padding-left:15px ; 
+        margin: 0 0 10px 10px;
+}
+.wna_contents{
+	margin: 0 0 20px 20px;
+}
+.wna_pre_page{
+	float:left;
+	margin-bottom:20px;
+}
+.wna_next_page{
+	float:right;
+	margin-bottom:20px;
+}
+ /*================================================
+ 笆� Hot Topics �ｼ� 繝｡繝ｳ繝�繝翫Φ繧ｹ諠�蝣ｱ --- by Kimiko Suzuki (11.04.12)
+ ================================================*/
+.ht_list {
+        width:620px;
+        float:left;
+        font-size:100%;
+        margin-left:-10px;
+}
+.ht_list li{
+        list-style:none;
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/themes/ddbj/images/css/list01.gif) no-repeat 0px 5px;
+        padding-left:10px;
+}
+.ht_link{
+	margin-left:10px;
+}
+ /*================================================
+ 笆� 譫�邱壹′騾乗�弱↑table險ｭ螳� --- by Kimiko Suzuki (11.12.20)
+ ================================================*/
+table#table_toumei {
+                width:600px;
+                font-size: 100%;
+                border: solid  0px #ffffff;
+                outline-style:none;    /*霈ｪ驛ｭ邱壹�ｮ繧ｹ繧ｿ繧､繝ｫ*/
+                border-collapse: collapse; /*table縺ｮ譫�邱壹�ｮ陦ｨ遉ｺ縲��ｼ第悽邱�*/
+                margin:0px;
+}
+table td#td_toumei{
+		border: solid  0px #ffffff;
+}
+ /*================================================
+ 笆� 蜈･蜉帙ヵ繧ｩ繝ｼ繝� --- by Kimiko Suzuki (11.10.26)
+縲�繝ｻ逋ｻ骭ｲ繝�繝ｼ繧ｿ縺ｮ菫ｮ豁｣繝ｻ譖ｴ譁ｰ逕ｳ縺苓ｾｼ縺ｿ�ｼ域律譛ｬ隱�/闍ｱ隱橸ｼ�
+縲�繝ｻ縲檎ｬｬ**蝗� DDBJing 隰帷ｿ剃ｼ� in �ｼ奇ｼ翫�� 蜿ょ刈逕ｳ霎ｼ縺ｿ繝輔か繝ｼ繝�
+縲�繝ｻ縺雁撫縺�蜷医ｏ縺�
+ ================================================*/
+table#table_input {
+                width:600px;
+                font-size: 100%;
+                border: solid  0px #ffffff;
+                outline-style:none;    /*霈ｪ驛ｭ邱壹�ｮ繧ｹ繧ｿ繧､繝ｫ*/
+                border-collapse: collapse; /*table縺ｮ譫�邱壹�ｮ陦ｨ遉ｺ縲��ｼ第悽邱�*/
+                margin:0px;
+}
+table td#td_input{
+		border: solid  0px #ffffff;
+}
+input#text_input {
+       		 margin-bottom:0px;
+}
+select#input{
+        margin-bottom:0px;
+}
+h3#input{
+        margin-bottom:0px;
+        margin-top:10px;
+ }
+
+ /*================================================
+ 笆� 繝｡繝ｼ繝ｫ繝槭ぎ繧ｸ繝ｳ --- by Kimiko Suzuki (11.10.13)
+繝励Ο繧ｰ繝ｩ繝�蜷搾ｼ嗄ailmag_form
+ ================================================*/
+/* == 繧ｷ繝ｧ繝ｼ繝医さ繝ｼ繝� css === */
+.page_select{
+    width:800px;
+}
+
+/** 蜑榊捷縺ｸ�ｼ乗ｬ｡蜿ｷ縺ｸ縺ｮ菴咲ｽｮ **/
+.mag_next{
+    float:left;
+    padding-right:200px;
+}
+.mag_pre{
+    float:right;
+}
+
+.mag_midashi_title{
+	background:url(http://www.ddbj.nig.ac.jp/wp-content/uploads/magicon.gif) no-repeat center left; 
+        background-color:#99cccc;
+        color: #333333 ;
+        font-size:100%; 
+        font-weight:bold; 
+         padding: 2px 3px 2px 25px;
+         margin: 0px 20px 0px 0px;
+         width:770px;
+}
+
+.mag_honbun_waku{
+        border: 3px solid #99cccc                         ;  
+        padding: 6px 25px 0px 10px;
+        text-align: left;
+        margin: 0px 20px 0px 0px;
+        width:757px;
+}
+
+.dt_mag03 {
+        font-weight:bold;
+        margin: 0px 20px 0px 0px;
+        padding: 0px;
+}
+.dd_mag01 {
+        margin:0px 20px  0px 15px;
+        padding: 5px;
+}
+.dd_mag03 {
+        margin:10px 20px 15px 15px;
+}
+
+
+/* 螟壼�荳堺ｽｿ逕ｨ
+.dt_mag01_r {
+        font-size: 100%;
+        margin: 0px 20px 0px 0px;
+        padding: 0px;
+        text-align: right;
+}
+
+.dt_mag01_l {
+        margin: 0px 20px 0px 0px;
+        padding: 0px;
+        text-align: left;
+}
+.mag_midashi_mag{
+        font-size: 85%;
+        background-color:#99cccc;
+        color: #333333; 
+        text-align: left;
+        text-decoration:none;
+        font-weight: bold;
+        padding: 2px 3px 2px 25px;
+        margin: 0px 20px 0px 0px;
+         width:770px;
+         }
+*/
+ /*================================================
+ 笆� 邨ｱ險医�壹�ｼ繧ｸ --- by Kimiko Suzuki (11.11.29)
+    繝ｻDDBJ Database Release History	(style=1)
+    繝ｻJournal ranking					(style=2)
+    繝ｻNumbers of data submitted to DDBJ(style=3)
+    繝ｻWGS released data				(style=4)
+繝励Ο繧ｰ繝ｩ繝�蜷搾ｼ喘s_table
+ ================================================*/
+.td_bs_r_b{
+        border:solid 1px #d2d2d2;
+        padding:3px 1px;
+        text-align: right;
+        background-color: #E0FFFF;
+}
+.td_bs_r {
+        border:solid 1px #d2d2d2;
+        padding:3px 5px;
+        text-align: right;
+}
+.td_bs_l{
+        border:solid 1px #d2d2d2;
+        padding:3px 5px;
+        text-align: left;
+}
+ /*================================================
+ 笆� DDBJ 繝ｪ繝ｪ繝ｼ繧ｹ縲�邨ｱ險医�壹�ｼ繧ｸ  --- by Kimiko Suzuki (11.11.29)
+    繝ｻ蝗ｽ髫帛｡ｩ蝓ｺ驟榊�励ョ繝ｼ繧ｿ繝吶�ｼ繧ｹ縺ｫ縺翫¢繧九お繝ｳ繝医Μ謨ｰ縺ｮ蜑ｲ蜷�
+    繝ｻ蝗ｽ髫帛｡ｩ蝓ｺ驟榊�励ョ繝ｼ繧ｿ繝吶�ｼ繧ｹ縺ｫ縺翫¢繧句｡ｩ蝓ｺ謨ｰ縺ｮ蜑ｲ蜷�
+繝励Ο繧ｰ繝ｩ繝�蜷搾ｼ咼DBJ_release_table
+ ================================================*/
+table#bs_nu {
+        width: 800px;
+        border: solid 1px #d2d2d2;     
+        font-size:100%;                          
+        border-collapse:collapse;
+        margin-left:0px;
+        table-layout: auto;
+}
+
+.th_bs {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #b0c4DE;
+}
+
+
+.th_bs_ddbj {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #ffc594;
+}
+/* changed by JK at 20100223 from #ffcccc to #ffc594*/
+
+.th_bs_embl {
+       width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #5fb4a0
+}
+/* changed by JK at 20100223 from #ccff99 to #5fb4a0*/
+
+.th_bs_gb {
+        width:150px;
+        border:solid 1px #d2d2d2;
+        padding:10px;
+        text-align:center;
+        background-color: #528cde;
+}
+/* changed by JK at 20100223 from #6699cc to #528cde*/
+
+tr td#bs_c_b{
+		font-size:100%;
+        	border:solid 1px #d2d2d2;
+		padding-left:1px;
+		padding-right:1px;
+        	text-align: center;
+        	background-color: #E0FFFF;
+}
+
+tr td#bs_c{
+		font-size:100%;
+        	border:solid 1px #d2d2d2;
+		padding-left:1px;
+		padding-right:1px;
+             	 text-align: center;
+}
+
+ /*================================================================
+ 笆� 繝�繝ｼ繝悶Ν菴懈�千畑繝励Λ繧ｰ繧､繝ｳ窶ｦmake_table.php --- by Kimiko Suzuki (11.10.19)
+ ================================================================*/
+table#mktable {
+	table-layout: auto;
+        border: solid  1px #999999;
+        border-collapse: collapse;
+        margin-left:20px;
+}
+table#mktable_noline {   /* 鄂ｫ邱壹↑縺�*/
+	table-layout: auto;
+        border:solid 0px #999999;
+        border-collapse: collapse;
+        margin-left:10px;
+}
+
+tr td#mktable_title  /* 陦ｨ鬘�  */
+      {
+        border:solid 1px #999999;
+        background-color: #ccddee;
+        text-align:center;
+        font-weight:bold;
+}
+tr td#mktable_title_noline  /* 陦ｨ鬘�  鄂ｫ邱壹↑縺�*/
+      {
+        border:solid 0px #999999;
+        background-color: #ccddee;
+/*        text-align:center;*/
+        font-weight:bold;
+}
+
+tr td#mktable_center  /*  鬆�逶ｮ窶ｦ繧ｻ繝ｳ繧ｿ繝ｪ繝ｳ繧ｰ */
+      {
+        border:solid 1px #999999;
+        text-align:center;
+}
+tr td#mktable_center_noline  /*  鬆�逶ｮ窶ｦ繧ｻ繝ｳ繧ｿ繝ｪ繝ｳ繧ｰ 鄂ｫ邱壹↑縺�*/
+      {
+        border:solid 0px #999999;
+        text-align:center;
+}
+
+tr td#mktable_left  /* 鬆�逶ｮ窶ｦ蟾ｦ隧ｰ繧� */
+      {
+        border:solid 1px #999999;
+}
+tr td#mktable_left_noline  /* 鬆�逶ｮ窶ｦ蟾ｦ隧ｰ繧� 鄂ｫ邱壹↑縺�*/
+      {
+        border:solid 0px #999999;
+}
+
+
+/* == 繧ｷ繝ｧ繝ｼ繝医さ繝ｼ繝� css 縺薙％縺ｾ縺ｧ === */
+
+ /*============================================================
+ 笆� 謚慕ｨｿ逕ｨcss --- by Kimiko Suzuki (11.12.22)
+ ============================================================*/
+ /* 遲牙ｹ�繝輔か繝ｳ繝医��閭梧勹逋ｽ*/
+pre#log {          
+       font-family:  "�ｼｭ�ｼｳ 繧ｴ繧ｷ繝�繧ｯ",Courier,monospace;
+        font-size:10pt;
+        line-height:10pt;
+        white-space: pre;
+        margin-top:-10px;
+        padding-top:5px;
+        padding-bottom:5px;
+        padding-left:15px;
+        background-color: white;
+}
+h6 {
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/uploads/faq_q.gif) no-repeat center left;
+        font-size: 100%;
+        padding : 5px 8px 0px 30px;
+        text-decoration:underline;
+        cursor:pointer;
+}
+p.faq{
+	margin : 10px 20px 0 20px;
+        padding : 5px 8px 0px 30px;
+	font-size : 100%;
+}
+p.faq_ans{
+        background:url(http://www.ddbj.nig.ac.jp/wp-content/uploads/faq_a.gif) no-repeat top left;
+	margin : 10px 20px 0 20px;
+        padding : 5px 8px 0px 30px;
+	font-size : 100%;
+}
+p.faq_number {
+	margin : -10px 25px 0 0;
+	text-align:right;
+	font-size:x-small;
+}
+hr.faq{
+        width:750px;
+}
+dl.faq{
+        margin:0 20px 0 50px;
+}
+ /*================================================================
+ 笆� 繧ｹ繝代さ繝ｳ繝ｪ繝励Ξ繝ｼ繧ｹ縺ｫ莨ｴ縺�繧ｵ繝ｼ繝薙せ蛛懈ｭ｢縺顔衍繧峨○逕ｨ襍､譫�縲�縲�by Junko Kohira(12.02.06)
+ ================================================================*/
+#notice{
+                text-align: left;
+                text-decoration:none;
+                padding: 10px ;
+                margin: 20px 25px 25px 20px;
+               background-color: #cceaff;
+縲�縲�縲�縲�縲� /* border: solid 1px #ff0000;*/
+             }
+
+#notice_2{
+                text-align: left;
+                text-decoration:none;
+                padding: 10px ;
+                margin: 20px 200px 20px 20px;
+                 background-color: #cceaff;
+縲�縲�縲�縲�縲�縲�/*border: solid 1px #ff0000;*/
+             }
+
+
+ /*================================================================
+ 笆� 髫主ｱ､繧偵▽縺代◆繝ｪ繧ｹ繝郁｡ｨ遉ｺ縲�縲�by Junko Kohira(12.02.03)
+ ================================================================*/
+#list_l1{
+                text-align: left;
+                text-decoration:none;
+                padding: 1px 3px 1px 5px;
+                margin: 0px 100px 0px 20px;
+             }
+
+#list_l1p{
+                text-align: left;
+                text-decoration:none;
+                padding: 1px 3px 1px 5px;
+                margin: 0px 50px 0px 20px;
+                background-color:#f8D4E6;
+          }
+
+#list_l2{
+                text-align: left;
+                text-decoration:none;
+                padding: 1px 3px 1px 5px;
+                margin: 0px 20px 0px 50px;
+           }
+
+#list_l3{
+                text-align: left;
+                text-decoration:none;
+                padding: 1px 3px 1px 5px;
+                margin: 0px 20px 0px 80px;
+           }
+#list_l4{
+                text-align: left;
+                text-decoration:none;
+                padding: 1px 3px 1px 5px;
+                margin: 0px 20px 0px 85px;
+           }
+
+
+.link01 li {background:#e4e3e3 url(../images/link01_bg_top_170_90.gif) no-repeat top left;width:170px;height:30px;list-style:none;margin-bottom:2px;margin-left:0px;margin-top:0px;
+}
+.link01 p {background:url(../images/link01_bg_bottom_170.gif) no-repeat bottom left;padding:6px 3px 6px 10px;
+}
+.link01 a {background:url(../images/arrow_l_02.gif) no-repeat left center;font-weight:bold;text-decoration:none;color:#555555;font-size:12px;display:block;padding-left:10px;
+}
+.link01 a:hover {color:#555555;
+}

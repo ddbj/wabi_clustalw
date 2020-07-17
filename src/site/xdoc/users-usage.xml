@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+		<title>DDBJ WebAPI User's manual | REST interface</title>
+		<author email="osamu.ogasawara@gmail.com">Osamu Ogasawara</author>
+	</properties>
+
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> 
+		element -->
+	<head>
+		<title>User's manual - REST interface</title>
+	</head>
+
+	<body>
+	<section name="Basic structure of REST interface">
+	
+	<p>DDBJ WebAPIはRESTシステムとして実装されている。(RESTの考え方については<a href="http://rgm2.lab.nig.ac.jp/wiki/index.php/DDBJ_WebAPI_%28wabi%29%E5%86%8D%E8%88%88">OgaReportのWabi再興の項</a>を参照のこと。)</p>
+	
+	<p>DDBJ WebAPI (WABI; WebAPI for Biology)の対象にはblast, clustalwのような「プログラム」とDDBJのリリースデータやNCBI taxnomyといった「データベース」がある。</p>
+
+	<subsection name="プログラムの場合" >
+
+	<p>RESTが主張している原則はURLは「物」を指すと言うこと。結果として多くの場合URLの最後は物のIDになる。プログラムの場合、以下のようなURLで指される「物」はJobと考える。</p>
+   <source>
+   http://www.ddbj.nig.ac.jp/wabi/blast/{request-id}
+   </source>
+   <p>（備考: URL中の文字列"wabi"は変更の可能性あり。またサーバー名"www"は廃止あるいは変更の可能性あり。）</p>
+
+
+
+<p>この考え方で行くと呼び出し方は以下のようになる。</p>
+<source>
+GET    http://www.ddbj.nig.ac.jp/wabi/blast/{id}  : requestIdで表されるjobの現在の状況を報告する
+POST   http://www.ddbj.nig.ac.jp/wabi/blast       : jobの投入。requestIDを発行する。
+PUT    http://www.ddbj.nig.ac.jp/wabi/blast/{id}  : jobの再投入。以前POSTしたものと同じ条件でjobを投入する。UGEのjobIDは内部で変わるがrequestIDは同じ。(まだ実装していない)
+DELETE http://www.ddbj.nig.ac.jp/wabi/blast/{id}  : jobの停止（まだ実装していない）
+(OPTIONS, HEAD, TRACE --- 実装しない)
+</source>
+
+<p>GETについては以下のようになる。</p>
+<source>
+GET wabi/blast/{id}&amp;info="status"     : jobが走っている、キューにたまっている、終わっている、存在しない、ということを返す。
+GET wabi/blast/{id}&amp;info="result"     : jobが終わっていたら結果を返す。終わってない・存在しない場合は、空文字列を返す。
+</source>	
+	</subsection>
+
+<subsection name="実行例">
+<p>BLASTでホモロジー検索をするにはHTTPのPOSTメソッドを発行する必要がある。ここでは例としてwabi-clientというプログラムを使ってPOSTを発行する。</p>
+<p>wabi-clientのコンパイルとインストール方法 : いつものとおり。</p>
+<source>
+svn http://www.ogalab.net/svn/repos/wabi-client/trunk wabi-client
+cd wabi-client
+mvn compile ; mvn package
+mvn assembly:assembly -DdescriptorId=jar-with-dependencies  # one-jarを作る。
+</source>
+
+<p>wabi-clientの使用方法。POSTでwabiにアクセスすると、requestIdが返される。</p>
+<source>
+[w3wabi@t174 tmp]$ java -cp wabi-client-0.0.1-SNAPSHOT-jar-with-dependencies.jar jp.ac.nig.ddbj.wabi_client.BlastSearch conf.json
+requestId: wabi_blast_2012-0903-1421-54-24-301449
+program: blastn
+database: hum est_hum
+parameters:  -a 8 
+current-time: 2012-09-03 14:21:54
+start-time: 
+current-state: 
+</source>
+
+<p>ここで、conf.jsonに検索条件を書いている。conf.jsonの内容は以下のとおり。</p>
+<source>
+[w3wabi@t174 tmp]$ cat conf.json
+{
+  "urlStr": "http://t004:8080/wabi/blast",
+  "fasta": "/home/w3wabi/tmp/test.fasta",
+  "program": "blastn",
+  "database": "hum est_hum",
+  "parameters": " -a 8 "
+}
+</source>
+
+<p>wabi-clientのBlastSearchクラスは以下のようになっている。</p>
+<ol>
+<li>JSON形式の設定ファイルからデータを読み取りMultiValueMapオブジェクト(変数名parts)を作る。</li>
+<li>MultiValueMapオブジェクト（変数名parts)をRestTemplateオブジェクトに下記のコードのように渡すとHTTPのPOSTメソッドにデータが渡される。(RestTemplateはSpring3の中に含まれる、RESTクライアントを書くためのクラスである。)</li>
+</ol>
+<source><![CDATA[
+	public static void main(String[] args) throws IOException {
+		String jsonFile = args[0];
+		LinkedHashMap<String, String> conf  = JSON.decode(FileIO.readFile(jsonFile));
+		
+		urlStr = conf.get("urlStr");
+		
+		BlastSearch obj = new BlastSearch();
+		
+		MultiValueMap<String, Object> parts = new LinkedMultiValueMap<String, Object>();
+		parts.add("querySequence", FileIO.readFile(conf.get("fasta")));
+		parts.add("format", "text");
+		parts.add("program", conf.get("program"));
+		//parts.add("database", ArrayUtil.join(" ", dbList));
+		parts.add("database", conf.get("database"));
+		parts.add("parameters", conf.get("parameters"));
+
+		obj.printResult(parts);
+		
+	}
+	
+	public void printResult(MultiValueMap<String, Object> parts) {
+		RestTemplate rest = new RestTemplate();
+
+		String result = rest.postForObject(urlStr, parts, String.class);
+		System.out.println(result);
+	}
+]]></source>
+
+<p>結局、wabi/blastで、POSTメソッドに渡すべきデータは以下のとおり。</p>
+<ul>
+<li>querySequence : FastA形式の配列（文字列）</li>
+<li>format: POSTメソッドのレスポンスの形式。"text", "json", "xml"のいずれか。</li>
+<li>program: blastallプログラムの -p オプションに渡す文字列。"blastn", "blastp", "tblastx", "tblastn"など </li>
+<li>database: blastallプログラムの -dオプションに渡す文字列。</li>
+<li>parameters: blastallプログラムに渡す、その他のコマンドライン引数。</li>
+</ul>
+
+
+<p>結果をGETで得るには以下のようにする。requestIdをURLの最後に書く。</p>
+<p>まず最初にinfo=statusを指定して実行が終わったかどうかを見る。デフォルトではinfo=statusとなっているので下記の例のように指定しなくても動作する。</p>
+<p>statusは waiting, running, finished, not-foundのいずれかの値をとる。</p>
+<p>また、format=jsonと指定するとjson形式で結果を取得できる。formatは今のところtext, json, xmlの３種類。textがデフォルト値。</p>
+<source>
+[w3wabi@t174 tmp]$ curl http://t004:8080/wabi/blast/wabi_blast_2012-0903-1421-54-24-301449
+request-ID: wabi_blast_2012-0903-1421-54-24-301449
+status: finished
+current-time: 2012-09-03 14:55:23
+system-info: 
+==============================================================
+qname        default.q           
+hostname     t002i               
+group        w3wabi              
+owner        w3wabi              
+project      NONE                
+department   defaultdepartment   
+jobname      wabi_blast_blastn_w3wabi
+jobnumber    743                 
+taskid       undefined
+account      sge                 
+priority     0                   
+qsub_time    Mon Sep  3 14:21:54 2012
+start_time   Mon Sep  3 14:21:55 2012
+end_time     Mon Sep  3 14:23:20 2012
+granted_pe   NONE                
+slots        1                   
+failed       0    
+exit_status  0                   
+ru_wallclock 85           
+ru_utime     14.272       
+ru_stime     10.861       
+ru_maxrss    2166484             
+ru_ixrss     0                   
+ru_ismrss    0                   
+ru_idrss     0                   
+ru_isrss     0                   
+ru_minflt    317003              
+ru_majflt    314007              
+ru_nswap     0                   
+ru_inblock   13056               
+ru_oublock   1864                
+ru_msgsnd    0                   
+ru_msgrcv    0                   
+ru_nsignals  0                   
+ru_nvcsw     315278              
+ru_nivcsw    251                 
+cpu          25.133       
+mem          74.324            
+io           0.768             
+iow          0.000             
+maxvmem      3.335G
+arid         undefined
+</source>
+
+<p>BLASTの実行結果その物を得るにはinfo=resultを指定する。</p>
+<source>
+[w3wabi@t174 tmp]$ curl http://t004:8080/wabi/blast/wabi_blast_2012-0903-1421-54-24-301449?info=result
+BLASTN 2.2.25 [Feb-01-2011]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+Query= AB000095|AB000095.1 Homo sapiens mRNA for hepatocyte growth
+factor activator inhibitor, complete cds.
+         (1740 letters)
+
+Database: hum; est_hum 
+           9,272,098 sequences; 9,466,479,056 total letters
+
+Searching..................................................done
+
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+AB000095|AB000095.1 Homo sapiens mRNA for hepatocyte growth fact...  3207   0.0  
+BC018702|BC018702.1 Homo sapiens serine peptidase inhibitor, Kun...  3194   0.0  
+BC004140|BC004140.1 Homo sapiens serine peptidase inhibitor, Kun...  2948   0.0  
+BT007425|BT007425.1 Homo sapiens serine protease inhibitor, Kuni...  2861   0.0  
+BX334953|BX334953.2 human full-length cDNA 5-PRIME end of clone ...  2173   0.0  
+AY358969|AY358969.1 Homo sapiens clone DNA35880 HAI-1 (UNQ223) m...  2145   0.0  
+AY296715|AY296715.1 Homo sapiens hepatocyte growth factor activa...  1984   0.0  
+BX360439|BX360439.2 human full-length cDNA 5-PRIME end of clone ...  1972   0.0  
+AL513562|AL513562.3 human full-length cDNA 5-PRIME end of clone ...  1965   0.0  
+BX382617|BX382617.2 human full-length cDNA 5-PRIME end of clone ...  1943   0.0  
+BX335409|BX335409.2 human full-length cDNA 5-PRIME end of clone ...  1893   0.0  
+AL557359|AL557359.3 human full-length cDNA 5-PRIME end of clone ...  1891   0.0  
+BX340193|BX340193.2 human full-length cDNA 5-PRIME end of clone ...  1883   0.0  
+
+... 以下省略
+</source>
+
+</subsection>
+
+
+	</section>
+	</body>
+	</document>

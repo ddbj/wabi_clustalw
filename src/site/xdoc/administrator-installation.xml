@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+		<title>DDBJ WebAPI Administrator's Manual | Installation</title>
+		<author email="osamu.ogasawara@gmail.com">Osamu Ogasawara</author>
+	</properties>
+
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> 
+		element -->
+	<head>
+		<title>Administrator's Manual - Installation</title>
+	</head>
+
+	<body>
+		<section name="システム要件等">
+		
+		<subsection name="システム要件">
+		<p>以下の環境で動作確認をしている。</p>
+		<ul>
+		<li>Java JDK 1.7 　　: 1.6に落とすにはpom.xmlやソースコードの手直しが必要。</li>
+		<li>Tomcat 7 　　　　: 6でも動くかもしれない。</li>
+		<li>Apache Maven 3</li>
+		<li>Univa Grid EngineまたはOpen Grid Scheduler</li>
+		<li>Bash</li>
+		<li>BLAST等、呼び出されるプログラム。</li>
+		</ul>
+		
+		<p>SpringMVCフレームワークver3を使用している。これはmavenが自動的にインストールしてくれる。</p>
+		</subsection>
+		
+		
+		<subsection name="関連サーバー一覧">
+		<table>
+		<tr>
+		<th>役割</th>
+		<th>パスワードの有無</th>
+		<th>URL</th>
+		</tr>
+		
+		<tr>
+		<td>ソースコード管理 subversionリポジトリ</td>
+		<td>有</td>
+		<td><a href="http://www.ogalab.net/svn/repos/wabi/trunk">http://www.ogalab.net/svn/repos/wabi/trunk</a></td>
+		</tr>
+
+		<tr>
+		<td>mavenローカルリポジトリ</td>
+		<td>有</td>
+		<td><a href="http://www.ogalab.net/maven2">http://www.ogalab.net/maven2</a>, <a href="http://www.ogalab.net/maven2/maven2-snapshot">http://www.ogalab.net/maven2/maven2-snapshot</a></td>
+		</tr>
+		
+		<tr>
+		<td>継続的インテグレーション hudsonサーバー</td>
+		<td>有</td>
+		<td><a href="http://rgm3.lab.nig.ac.jp:8080/hudson-2.2.1/">http://rgm3.lab.nig.ac.jp:8080/hudson-2.2.1/</a></td>
+		</tr>
+		
+		<tr>
+		<td>BLAST webアプリ版 テスト運用サーバー (よく落ちてます)</td>
+		<td>無</td>
+		<td><a href="http://rgm3.lab.nig.ac.jp:8080/blast">http://rgm3.lab.nig.ac.jp:8080/blast</a></td>
+		</tr>
+		
+		<tr>
+		<td>WebAPI　テスト運用サーバー (よく落ちてます)</td>
+		<td>無</td>
+		<td><a href="http://rgm3.lab.nig.ac.jp:8080/wabi/blast">http://rgm3.lab.nig.ac.jp:8080/wabi/blast</a></td>
+		</tr>
+		
+		<tr>
+		<td>その他文書 OgaReport Wabi再興 </td>
+		<td>無</td>
+		<td><a href="http://rgm2.lab.nig.ac.jp/wiki/index.php/DDBJ_WebAPI_%28wabi%29%E5%86%8D%E8%88%88">http://rgm2.lab.nig.ac.jp/wiki/index.php/DDBJ_WebAPI_%28wabi%29%E5%86%8D%E8%88%88</a></td>
+		</tr>
+		
+		</table>
+		
+		</subsection>
+		
+		</section>
+		
+		
+		
+		<section name="ローカルのテスト環境の作成">
+		<p>最終的には遺伝研スパコンの上で動作させるが、テストのために普通のLinuxサーバー上にローカルの環境を作ることもできる。以下Ubuntu Linux 12.04LTS相当のLinux Mint13にテスト環境を作った際の記録を記す。</p>
+		
+		<subsection name="使用するソフトウェアのインストール">
+		
+		<ul>
+		<li>Open Grid Scheduler : <a href="http://rgm2.lab.nig.ac.jp/wiki/index.php/Open_Grid_Scheduler">OgaReportの「Open_Grid_Scheduler」の項</a>参照。</li>
+		<li>Tomcat7 : 普通にapt-get tomcat7でインストール。メモリの設定等はいじっていない。（必要なら適当にいじってください）</li>
+		<li>BLAST : 普通にapt-get blast2でインストール。特別な設定は無し。</li>
+		</ul>
+		
+		</subsection>
+		
+
+		
+		<subsection name="コンパイル・デプロイの方法">
+		<p>subversionサーバーからソースコードをダウンロード。以下コマンドラインでダウンロードするやり方だがEclipseからやってもよい。</p>
+		<source>
+svn http://www.ogalab.net/svn/repos/wabi/trunk wabi
+		</source>
+		
+		<p>mavenがローカルリポジトリにアクセスできるようにするために$HOME/.m2/settings.xmlを作成する。
+		詳細については<a href="http://rgm2.lab.nig.ac.jp/wiki/index.php/Maven%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">OgaReportの「Mavenの使い方」</a>を参照のこと</p>
+		<source><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <servers>
+    <server>
+      <id>private-webdav-repository</id>
+      <username>yourname</username>
+      <password>yourpassword</password>
+    </server>
+ 
+    <server>
+      <id>private-webdav-snapshot-repository</id>
+      <username>yourname</username>
+      <password>yourpassword</password>
+    </server>
+ <!-- 
+    <server>
+      <id>tomcat7</id>
+      <username>tomcat-script</username>
+      <password>yourpassword</password>
+    </server>
+-->
+  </servers>
+ 
+</settings>
+		]]>
+		</source>
+		
+		<p>BLASTのデータベースをどこかに配置する。</p>
+		
+		<p>配置したデータベースの位置をwabiプログラムに教える。今のところjp.ac.nig.ddbj.wabi.util.Confクラスの中にハードコーディングしてある。</p>
+		<source>
+package jp.ac.nig.ddbj.wabi.util;
+
+public class Conf {
+	
+	/** このディレクトリの下にユーザーの計算結果などが置かれる。 */
+	final static public String workingDirBase = "/home/w3wabi/data/wabi-user-data/";
+	
+	/** この値がblastallのBLASTDB環境変数に設定される。*/
+	final static public String blastDbPath    = "/home/w3wabi/data/blastdb/";
+
+}		
+		</source>
+		
+		<p>コンパイル</p>
+		<source>
+mvn compile # コンパイルのみ。
+mvn package # warファイルができる。
+mvn site    # このサイトができる。
+mvn javadoc:javadoc
+		</source>
+		</subsection>
+		
+		<p>出来上がったwarファイルをTomcat7のwebappディレクトリに置けば動作する。</p>
+		
+		<subsection name="動作テスト">
+		<p><a href="http://rgm3.lab.nig.ac.jp:8080/hudson-2.2.1/job/wabi/ws/target/site/users-usage.html">User's Manual</a>の中の「実行例」を参照のこと。</p>
+		</subsection>
+		</section>
+		
+		<section name="スパコン上への設置">
+		<p>上記「ローカルのテスト環境の作成」と同じ。以下の手順で動作する。</p>
+		<ol>
+		<li>jp.ac.nig.ddbj.wabi.util.Confクラスを適当に編集。</li>
+		<li>再コンパイル (mvn package)</li>
+		<li>warファイルをtomcatのwebappに置く。</li>
+		</ol>
+		
+		<ul>
+		<li>現在のところt004のtomcatのwebappだけにwarを置いてあります。</li>
+		<li>ディレクトリについて、現在のところ下記Conf.javaの通り。</li>
+		</ul>		
+
+		<source>
+package jp.ac.nig.ddbj.wabi.util;
+
+public class Conf {
+	
+	/** このディレクトリの下にユーザーの計算結果などが置かれる。 */
+	final static public String workingDirBase = "/home/w3wabi/data/wabi-user-data/";
+	
+	/** この値がblastallのBLASTDB環境変数に設定される。*/
+	final static public String blastDbPath    = "/home/w3wabi/data/blastdb/";
+
+}		
+		</source>		
+
+		
+		<p>動作テストについても、上記「ローカルのテスト環境の作成」と同じ。</p>
+		
+		
+		
+		</section>
+		
+	</body>
+</document>

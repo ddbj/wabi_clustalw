@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+		<title>Page Title</title>
+		<author email="osamu.ogasawara@gmail.com">Osamu Ogasawara</author>
+	</properties>
+
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> 
+		element -->
+	<head>
+		<title>Developers Manual - Design</title>
+	</head>
+
+	<body>
+	<h2>概念の整理</h2>
+	
+	<p>概念がはっきりしないとバグの元になります。</p>
+	
+	<p>それぞれの概念の前提条件を整理します。</p>
+	
+	<p>例えばJobID(UGE)は、単なる通し番号なのでシステムをリセットすると数値が1から振りなおされます。したがって一意性はありません。</p>
+	<p>一方requestIDは、ユーザーがアクセスしてきた時刻をベースにしており、一位に特定のリクエストを指すと考えることが出来ます。</p>
+	
+		<h2>用語 (1) Request, Query, Result, Response</h2>
+
+
+		<p>Request, Query, Parameter,
+			Result, Responseは様々な意味に使われるので、
+			マニュアル中では区別して表記する方法が必要である。
+			新しい用語を発明するのは煩雑なので、単にRequest(http)などと括弧つきで文字列を補足することにより区別する。
+		</p>
+
+		<h3>概念と呼び方</h3>
+		<ol>
+			<li>
+				ユーザがHTMLのフォームなどからデータを入力してPOSTメソッドHTTPサーバーに送付したデータの一組 :
+				Request(user)
+			</li>
+			<li>
+				サーブレット仕様で定められているHTTPのRequestオブジェクト : Request(servlet)
+			</li>
+			<li>
+				クエリ配列、の意味のクエリ。BLASTに投入されたfasta形式のデータのこと。: Query(fasta)
+			</li>
+			<li>
+				BLASTなどのプログラムを走らせるときのコマンドライン引数。 : Parameter
+			</li>
+			<li>
+				BLASTなどのプログラムの出力。(結果がファイルに出力される場合） : Result(outfile)
+			</li>
+			<li>
+				BLASTなどのプログラムの出力（Stdout) : Result(stdout)
+			</li>
+			<li>BLASTなどのプログラムの出力 (Stderr) : Result(stderr)</li>
+		</ol>
+
+		<h2>用語(2) Job</h2>
+
+		<p>
+			ジョブ : Univa Grid Engine上のジョブのことを指すばあいと、
+			wabiに対してPOSTメソッドを実行した時に動作するblastプログラムのプロセスを指す場合がある。
+			これらをjob(UGE),
+			job(wabi)と表記して区別する。
+		</p>
+		<h2>用語(3) IDの種類</h2>
+		<ol>
+			<li>
+				request-id : job(wabi)のID。wabiのPOSTメソッドが発行する
+			</li>
+			<li>job-id : job(UGE)のID。Univa Grid Engineが発行する。</li>
+		</ol>
+	</body>
+</document>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!-- <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp"> -->
+	<!-- 	<put-attribute name="title" value="WABI | DDBJ" /> -->
+	<!-- 	<put-attribute name="jquery-functions" value="/WEB-INF/jsp/jquery-functions.jsp" /> -->
+	<!-- 	<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" /> -->
+	<!-- 	<put-attribute name="side-menu" value="/WEB-INF/jsp/side-menu.jsp" /> -->
+	<!-- 	<put-attribute name="breadcrumb" value="/WEB-INF/jsp/breadcrumb.jsp" /> -->
+	<!-- 	<put-attribute name="query-form" value="/WEB-INF/jsp/query-form.jsp" /> -->
+	<!-- 	<put-attribute name="dataset" value="" /> -->
+	<!-- 	<put-attribute name="parameter" value="" /> -->
+	<!-- 	<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" /> -->
+	<!-- </definition> -->
+
+
+	<!-- ここの名前(definition name="blastn")がcontrollerでviewを指定したときの名前とマッチされる (JSPのファイル名ではない) -->
+	<!-- <definition name="wabi-webpage" extends="base.definition"> -->
+	<!-- 	<put-attribute name="title" value="WABI : DDBJ Web API System" /> -->
+	<!-- 	<put-attribute name="dataset" value="/WEB-INF/jsp/body/nucleotide-dataset.jsp" /> -->
+	<!-- 	<put-attribute name="parameter" value="/WEB-INF/jsp/body/blast-parameters-without-matrix.jsp" /> -->
+	<!-- </definition> -->
+
+	<definition name="test.security_application_scan" template="/WEB-INF/jsp/test/security_application_scan.jsp">
+		<put-attribute name="title" value="WABI : DDBJ Web API System | Test | Security Application Scan" />
+	</definition>
+</tiles-definitions>

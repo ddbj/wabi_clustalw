@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJarLocking="true" path="/tx_search">
+<!--
+	<Resource name="jdbc/ncbi_taxonomy" auth="Container" type="javax.sql.DataSource"
+            maxActive="100" maxIdle="30" maxWait="10000"
+            username="w3txsearch" password="w3txsearchpass" driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mysql03/ncbi_taxonomy"/>
+	<Resource name="jdbc/ncbi_taxonomy" auth="Container" type="javax.sql.DataSource"
+            maxActive="100" maxIdle="30" maxWait="10000"
+            username="ddbj" password="testddbj" driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/ncbi_taxonomy"/>
+ -->
+</Context>

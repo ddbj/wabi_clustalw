@@ -1,0 +1,40 @@
+<project>
+
+<!-- 
+   <bannerLeft>
+    <name>Project Name</name>
+    <src>http://maven.apache.org/images/apache-maven-project-2.png</src>
+    <href>http://maven.apache.org/</href>
+  </bannerLeft>
+
+  <bannerRight>
+    <src>http://maven.apache.org/images/maven-logo-2.gif</src>
+  </bannerRight>
+-->  
+    <poweredBy>
+    <logo name="Maven" href="http://maven.apache.org/"
+          img="http://maven.apache.org/images/logos/maven-feather.png"/>
+  </poweredBy>
+
+  <publishDate position="right"/>
+  <version position="right"/>
+
+  <body>
+    <menu name="Administraters Manual">
+      <item name="Installation" href="administrator-installation.html"/>
+    </menu>
+    <menu name="Users Manual">
+      <item name="How to use" href="users-usage.html"/>
+      <!-- <item name="Writing REST clients" href="users-clients.html" /> -->
+    </menu>
+    <menu name="Developpers Manual">
+       <item name="Glossary" href="developer-glossary.html" />
+     <!-- <item name="System Design" href="developer-design.html"/>
+	  <item name="Processing Flow" href="developer-flow.html" /> -->
+    </menu>
+
+   <menu ref="reports" />
+   <menu ref="modules" />
+   <menu ref="parents" />
+  </body>
+</project>
