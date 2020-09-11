@@ -4,7 +4,7 @@
 clustalw, vecscreen, mafft の3種類の処理をひとまとめにしてある。
 
 vecscreen はGUI部分のソースコード (https://gitlab.ddbj.nig.ac.jp/yookuda/vecscreen) が別にある。
-本ソースコードをコンパイルしてできたwarファイル（wabi.war）は、vecscreenのGUI部分（vecscreen.war）とともにtomcatにデプロイする。
+実行する際は、本ソースコードをコンパイルしてできたwarファイル（wabi.war）とvecscreenのGUI部分（vecscreen.war）をともにtomcatにデプロイする。
 
 ## 依存ライブラリ
 コンパイル時には事前に以下の3つの依存ライブラリをMavenでコンパイルしてローカルリポジトリに配置しておく。
