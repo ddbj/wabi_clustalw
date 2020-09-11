@@ -1,9 +1,10 @@
 # wabi_clustalw
 ## 概要
-ユーザーからのデータのPOSTに対してRequestIDを発行し、Univa Grid Engineでデータの処理を行うWeb APIのソースファイル。
+ユーザーからのデータのPOSTに対してRequestIDを発行し、Univa Grid Engineでデータの処理を行うWeb APIのソースコード。
 clustalw, vecscreen, mafft の3種類の処理をひとまとめにしてある。
 
 vecscreen はGUI部分のソースコード (https://gitlab.ddbj.nig.ac.jp/yookuda/vecscreen) が別にある。
+本ソースコードをコンパイルしてできたwarファイル（wabi.war）は、vecscreenのGUI部分（vecscreen.war）とともにtomcatにデプロイする。
 
 ## 依存ライブラリ
 コンパイル時には事前に以下の3つの依存ライブラリをMavenでコンパイルしてローカルリポジトリに配置しておく。
