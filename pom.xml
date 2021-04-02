@@ -8,7 +8,6 @@
 	<name>WABI : DDBJ WebAPIs for Biology</name>
 	<url>http://www.ddbj.nig.ac.jp/wabi/</url>
 
-
 	<properties>
 		<servlet-api.version>2.5</servlet-api.version>
 		<spring.version>3.2.13.RELEASE</spring.version>
@@ -19,8 +18,8 @@
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<commons-digester.version>2.1</commons-digester.version>
 		<commons-beanutils.version>1.8.3</commons-beanutils.version>
-		<simpleutil.version>6.0.3</simpleutil.version>
-		<compiler.version>1.6</compiler.version>
+		<simpleutil.version>8.0.3</simpleutil.version>
+		<compiler.version>1.8</compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -45,11 +44,6 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>${commons-beanutils.version}</version>
 		</dependency>
-		<!--  <dependency>
-			<groupId>commons-digester</groupId>
-			<artifactId>commons-digester</artifactId>
-			<version>${commons-digester.version}</version>
-		</dependency> -->
 
 		<dependency>
 			<groupId>jstl</groupId>
@@ -64,23 +58,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-
 		<dependency>
 			<groupId>com.googlecode.sli4j</groupId>
 			<artifactId>sli4j-slf4j-logback</artifactId>
 			<version>2.0</version>
 		</dependency>
-		<!--  <dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId> 
-			<version>${commons-logging.version}</version>
-		</dependency> -->
-<!--		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-asm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
--->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
@@ -112,56 +95,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
-
-<!--		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.web.servlet</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.oxm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
--->
-		<!-- <dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>com.springsource.javax.servlet</artifactId> 
-			<version>${servlet-api.version}</version>
-			<scope>provided</scope>
-		</dependency> 
-		<dependency>
-			<groupId>com.stupidjavatricks.spring</groupId>
-			<artifactId>spring-rest-example-model</artifactId> 
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.collections</groupId> 
-			<artifactId>google-collections</artifactId>
-			<version>1.0-rc4</version>
-		</dependency> -->
-
 
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -222,23 +155,22 @@
 			<version>1</version>
 		</dependency>
 
-
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-jdbc</artifactId>
-        	<version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.32</version>
-        </dependency>
+        	<dependency>
+        		<groupId>org.springframework</groupId>
+        		<artifactId>spring-jdbc</artifactId>
+        		<version>${spring.version}</version>
+        	</dependency>
+        	<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.32</version>
+        	</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.1</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<profiles>
@@ -327,21 +259,21 @@
 			</plugin>
 
 			<plugin>
-			    <groupId>com.mycila</groupId>
-			    <artifactId>license-maven-plugin</artifactId>
-			    <version>2.9</version>
-			    <configuration>
-			        <header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
-			        <properties>
-			            <owner>Osamu Ogasawara</owner>
-			            <email>oogasawa@nig.ac.jp</email>
-			        </properties>
-			        <excludes>
-			            <exclude>**/README</exclude>
-			            <exclude>src/test/resources/**</exclude>
-			            <exclude>src/main/resources/**</exclude>
-			        </excludes>
-			    </configuration>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
+					<properties>
+						<owner>Osamu Ogasawara</owner>
+						<email>oogasawa@nig.ac.jp</email>
+					</properties>
+					<excludes>
+						<exclude>**/README</exclude>
+						<exclude>src/test/resources/**</exclude>
+						<exclude>src/main/resources/**</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 
 		</plugins>
@@ -355,13 +287,11 @@
 			</extension>
 		</extensions>
 
-
 		<resources>
 			<resource>
 				<directory>${resources.directory}</directory>
 			</resource>
 		</resources>
-
 
 	</build>
 
