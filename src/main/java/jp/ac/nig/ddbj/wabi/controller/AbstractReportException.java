@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 abstract class AbstractReportException extends Exception {
     private LinkedHashMap<String, Object> report;
 
+	
     protected AbstractReportException(LinkedHashMap<String, Object> report) {
         this.report = report;
     }
@@ -12,4 +13,6 @@ abstract class AbstractReportException extends Exception {
     public LinkedHashMap<String, Object> getReport() {
         return report;
     }
+
+
 }

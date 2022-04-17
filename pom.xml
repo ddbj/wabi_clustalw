@@ -5,7 +5,7 @@
 	<artifactId>wabi</artifactId>
 	<packaging>war</packaging>
 	<version>2.8-SNAPSHOT</version>
-	<name>WABI : DDBJ WebAPIs for Biology</name>
+	<name>WABI (clustalw)</name>
 	<url>http://www.ddbj.nig.ac.jp/wabi/</url>
 
 
@@ -19,6 +19,7 @@
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<commons-digester.version>2.1</commons-digester.version>
 		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		<!-- <simpleutil.version>6.0.3</simpleutil.version> -->
 		<simpleutil.version>6.0.3</simpleutil.version>
 		<compiler.version>1.6</compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
