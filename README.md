@@ -3,7 +3,7 @@
 ユーザーからのデータのPOSTに対してRequestIDを発行し、Univa Grid EngineでPOSTされたデータの処理を行うWeb APIのソースコード。
 clustalw, vecscreen, mafft の3種類の処理をひとまとめにしてある。
 
-vecscreen はGUI部分のソースコード (https://gitlab.ddbj.nig.ac.jp/yookuda/vecscreen) が別にある。
+vecscreen はGUI部分のソースコード (https://github.com/ddbj/vecscreen) が別にある。
 実行する際は、本ソースコードをコンパイルしてできたwarファイル（wabi.war）とvecscreenのGUI部分（vecscreen.war）をともにtomcatにデプロイする。
 
 ## 依存ライブラリ
