@@ -11,6 +11,6 @@ vecscreen はGUI部分のソースコード (https://github.com/ddbj/vecscreen) 
 Java6用とJava8用にそれぞれv6.0.3とv8.0.3のタグを付けてある（両者の違いはpom.xml中のコンパイラのバージョン指定が異なるだけ）ので、
 必要なタグをチェックアウトしてコンパイルすること。
 
-* https://gitlab.ddbj.nig.ac.jp/yookuda/simpleutil
-* https://gitlab.ddbj.nig.ac.jp/yookuda/simpleutil-linux
-* https://gitlab.ddbj.nig.ac.jp/yookuda/simpleutil-numerical
+* https://github.com/ddbj/simpleutil
+* https://github.com/ddbj/simpleutil-linux
+* https://github.com/ddbj/simpleutil-numerical
